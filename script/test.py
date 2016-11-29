@@ -41,9 +41,9 @@ def main():
   try:
     if use_instrumented_asar:
       install_instrumented_asar_file(resources_path)
-    print 'starting electron'
     subprocess.check_call([electron, 'spec'] + sys.argv[1:])
-    print 'electron done'
+    sys.stderr.write('\nelectron done\n')
+    sys.stderr.flush()
   except subprocess.CalledProcessError as e:
     returncode = e.returncode
   except KeyboardInterrupt:
@@ -58,7 +58,8 @@ def main():
       print f.read()
     rm_rf(output_to_file)
 
-  print 'done with tests'
+  sys.stderr.write('\ndone with tests\n')
+  sys.stderr.flush()
   return returncode
 
 

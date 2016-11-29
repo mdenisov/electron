@@ -61,6 +61,7 @@ ipcMain.on('console.log', print)
 ipcMain.on('console.error', print)
 
 ipcMain.on('process.exit', function (event, code) {
+  console.log('exiting from main process ' + code);
   process.exit(code)
 })
 
