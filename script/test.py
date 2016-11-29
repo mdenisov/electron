@@ -56,7 +56,7 @@ def main():
       print f.read()
     rm_rf(output_to_file)
 
-
+  print 'done with tests'
   return returncode
 
 
