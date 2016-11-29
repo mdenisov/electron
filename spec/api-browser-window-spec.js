@@ -520,7 +520,7 @@ describe('browser-window module', function () {
 
   describe('BrowserWindow.setAppDetails(options)', function () {
     it('supports setting the app details', function () {
-      if (process.platform !== 'win32') return this.skip()
+      return this.skip()
 
       const iconPath = path.join(fixtures, 'assets', 'icon.ico')
 
