@@ -72,6 +72,7 @@
 
   walker.on('end', function() {
     var runner = mocha.run(function() {
+      console.log('runner is done');
       if (isCi && runner.hasOnly) {
         try {
           throw new Error('A spec contains a call to it.only or describe.only and should be reverted.')
@@ -92,8 +93,10 @@
       coverage.addCoverage(ipcRenderer.sendSync('get-main-process-coverage'))
       coverage.generateReport()
 
-      if (isCi)
+      if (isCi) {
+        console.log('sending exit ' + runner.failures);
         ipcRenderer.send('process.exit', runner.failures);
+      }
     });
   });
 })();
