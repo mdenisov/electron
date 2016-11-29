@@ -96,6 +96,8 @@ def run_script(script, args=[]):
   sys.stderr.flush()
   script = os.path.join(SOURCE_ROOT, 'script', script)
   subprocess.check_call([sys.executable, script] + args)
+  sys.stderr.write('\nDone ' + script +'\n')
+  sys.stderr.flush()
 
 
 def log_versions():
