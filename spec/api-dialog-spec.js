@@ -75,7 +75,6 @@ describe('dialog module', () => {
       assert.throws(() => {
         dialog.showErrorBox('three', 4)
       }, /Error processing argument at index 1/)
-
     })
   })
 })
